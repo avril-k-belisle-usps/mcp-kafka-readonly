@@ -6,7 +6,7 @@ import (
 	"os"
 	"strings"
 
-	kafka "github.com/kanapuli/mcp-kafka/kafka"
+	kafka "github.com/avril-k-belisle-usps/mcp-kafka-readonlu/kafka"
 	mcp_golang "github.com/metoro-io/mcp-golang"
 	"github.com/metoro-io/mcp-golang/transport/stdio"
 	"go.uber.org/zap"
@@ -73,7 +73,7 @@ func main() {
 		Logger: logger,
 	}
 	server := mcp_golang.NewServer(stdio.NewStdioServerTransport(), mcp_golang.WithName("kafka"))
-
+/*
 	err = server.RegisterTool("create_topic", "Create a topic with the given number of partitions and replication factor", kafkaHandler.CreateTopic)
 	if err != nil {
 		zap.S().Errorf("error registering kafka topic resource: %v", err)
@@ -85,24 +85,25 @@ func main() {
 		zap.S().Errorf("error registering kafka topic resource: %v", err)
 		os.Exit(1)
 	}
-
+/*
 	err = server.RegisterTool("delete_topic", "Delete a topic", kafkaHandler.DeleteTopic)
 	if err != nil {
 		zap.S().Errorf("error registering kafka topic resource: %v", err)
 		os.Exit(1)
 	}
-
+*/
 	err = server.RegisterTool("describe_topic", "Describe a kafka topic", kafkaHandler.DescribeTopic)
 	if err != nil {
 		zap.S().Errorf("error registering kafka topic resource: %v", err)
 		os.Exit(1)
 	}
-
+/*
 	err = server.RegisterTool("produce_message", "Produce a message to a topic", kafkaHandler.Produce)
 	if err != nil {
 		zap.S().Errorf("error registering kafka topic resource: %v", err)
 		os.Exit(1)
 	}
+*/
 
 	err = server.RegisterTool("consume_messages", "Consume messages from a topic", kafkaHandler.Consume)
 	if err != nil {

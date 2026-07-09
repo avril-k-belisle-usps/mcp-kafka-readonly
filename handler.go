@@ -16,6 +16,7 @@ type KafkaHandler struct {
 	Logger *zap.SugaredLogger
 }
 
+/*
 // CreateTopic creates a new Kafka topic
 // Optional parameters that can be passed via FuncArgs are:
 // - NumPartitions: number of partitions for the topic
@@ -32,7 +33,8 @@ func (k *KafkaHandler) CreateTopic(ctx context.Context, req Request) (*mcp_golan
 
 	return mcp_golang.NewToolResponse(mcp_golang.NewTextContent(fmt.Sprintf("Topic %s is created", req.Topic))), nil
 }
-
+*/
+/*
 // DeleteTopic deletes an existing Kafka topic
 func (k *KafkaHandler) DeleteTopic(ctx context.Context, req Request) (*mcp_golang.ToolResponse, error) {
 
@@ -46,7 +48,7 @@ func (k *KafkaHandler) DeleteTopic(ctx context.Context, req Request) (*mcp_golan
 
 	return mcp_golang.NewToolResponse(mcp_golang.NewTextContent(fmt.Sprintf("Topic %s is deleted", req.Topic))), nil
 }
-
+*/
 // ListTopics lists all existing Kafka topics
 func (k *KafkaHandler) ListTopics(ctx context.Context, req Request) (*mcp_golang.ToolResponse, error) {
 
@@ -110,6 +112,7 @@ func (k *KafkaHandler) DescribeTopic(ctx context.Context, req Request) (*mcp_gol
 	return mcp_golang.NewToolResponse(mcp_golang.NewTextContent(response)), nil
 }
 
+/*
 // Produce sends a message to the Kafka topic.
 func (k *KafkaHandler) Produce(ctx context.Context, req Request) (*mcp_golang.ToolResponse, error) {
 
@@ -124,7 +127,7 @@ func (k *KafkaHandler) Produce(ctx context.Context, req Request) (*mcp_golang.To
 
 	return mcp_golang.NewToolResponse(mcp_golang.NewTextContent(response)), nil
 }
-
+*/
 func (k *KafkaHandler) Consume(ctx context.Context, req Request) (*mcp_golang.ToolResponse, error) {
 	if err := ctx.Err(); err != nil {
 		return nil, err
